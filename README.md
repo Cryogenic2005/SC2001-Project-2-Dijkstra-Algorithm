@@ -16,7 +16,7 @@ The program is intended to compare 2 implementations of Dijkstra's algorithm:
 
 Other things to note:
 - Optional arguments can be used to adjust the graph generated or which algorithm to run on.
-- The program will output the CPU time used for each algorithm to help with the comparison.
+- The program will output the number of comparisons between node distances and CPU time used for each algorithm to help with the comparison.
 
 ## Compilation
 
