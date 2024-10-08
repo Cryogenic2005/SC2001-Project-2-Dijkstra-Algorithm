@@ -55,6 +55,9 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    // Set precision for floating-point output
+    std::cout << std::fixed << std::setprecision(2);
+
     // Run Dijkstra's algorithm version A
     if (algorithm == "A" || algorithm == "AB") {
         // Initialize distance and parent arrays
