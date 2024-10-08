@@ -19,9 +19,13 @@ void generateGraph(int number_of_vertices, int number_of_edges, int maximum_weig
         for (int j = 0; j < number_of_vertices; j++)
             adj_matrix[i][j] = -1;
 
+    number_of_edges = std::min(
+        number_of_edges, 
+        number_of_vertices * (number_of_vertices - 1)
+    );
+
     // Random count of edges to generate
-    if (number_of_edges <= -1 || number_of_edges > 
-            number_of_vertices * (number_of_vertices - 1) / 2)
+    if (number_of_edges <= -1)
         number_of_edges = rd() % ((number_of_vertices * (number_of_vertices - 1)) / 2) + 1;
 
     // Generate random edges
