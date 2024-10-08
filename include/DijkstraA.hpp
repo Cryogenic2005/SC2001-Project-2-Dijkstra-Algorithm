@@ -8,4 +8,5 @@
 /// Non-adjacent nodes should be set to -1. Format: adj_matrix[start_node][end_node].
 /// @param distance returns shortest distance between start and all other nodes
 /// @param parents returns predecessor of selected node to backtrack shortest path
-void dijkstraA(int vertices, int start, int **adj_matrix, int *distance, int *parent);
+/// @return Number of comparisons made
+long long dijkstraA(int vertices, int start, int **adj_matrix, int *distance, int *parent);

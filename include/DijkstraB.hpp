@@ -10,4 +10,5 @@
 /// First value is the node, second value is the edge weight
 /// @param distance returns shortest distance between start and all other nodes
 /// @param parents returns predecessor of selected node to backtrack shortest path
-void dijkstraB(int vertices, int start, std::vector<std::pair<int,int>> adj_list[], int *distance, int *parent);
+/// @return Number of comparisons made
+long long dijkstraB(int vertices, int start, std::vector<std::pair<int,int>> adj_list[], int *distance, int *parent);

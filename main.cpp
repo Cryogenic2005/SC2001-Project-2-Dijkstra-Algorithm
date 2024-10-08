@@ -63,8 +63,10 @@ int main(int argc, char* argv[]) {
 
         // Run Dijkstra's algorithm version A
         auto start = std::chrono::steady_clock::now();
-        dijkstraA(num_vertices, 0, adj_matrix, distance, parent);
+        long long comparisons = dijkstraA(num_vertices, 0, adj_matrix, distance, parent);
         auto end = std::chrono::steady_clock::now();
+
+        std::cout << "DijkstraA used " << comparisons << " comparisons" << std::endl;
 
         std::cout << "DijkstraA took " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000.0l << "ms" << std::endl;
 
@@ -84,8 +86,10 @@ int main(int argc, char* argv[]) {
 
         // Run Dijkstra's algorithm version B
         auto start = std::chrono::steady_clock::now();
-        dijkstraB(num_vertices, 0, adj_list, distance, parent);
+        long long comparisons = dijkstraB(num_vertices, 0, adj_list, distance, parent);
         auto end = std::chrono::steady_clock::now();
+
+        std::cout << "DijkstraB used " << comparisons << " comparisons" << std::endl;
 
         std::cout << "DijkstraB took " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000.0l << "ms" << std::endl;
 

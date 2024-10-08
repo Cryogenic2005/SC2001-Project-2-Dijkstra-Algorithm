@@ -1,18 +1,24 @@
 #include <DijkstraB.hpp>
 
-#include <vector>
-#include <queue>
 #include <limits>
+#include <queue>
+#include <vector>
+
+static long long comparisons;
 
 // Custom comparator for comparing second element of two pairs.
 // Returns a.second > b.second
 struct CompareSecond{
     bool operator()(const std::pair<int, int>& a, const std::pair<int, int>& b){
+        comparisons++;
+        
         return a.second > b.second;
     }
 };
 
-void dijkstraB(int vertices, int start, std::vector<std::pair<int,int>> adj_list[], int *distance, int *parent){
+long long dijkstraB(int vertices, int start, std::vector<std::pair<int,int>> adj_list[], int *distance, int *parent){
+    comparisons = 0;
+
     // Initialize distance
     for(int i = 0; i < vertices; i++) distance[i] = std::numeric_limits<int>::max();
     distance[start] = 0;
@@ -39,7 +45,7 @@ void dijkstraB(int vertices, int start, std::vector<std::pair<int,int>> adj_list
 
         // All remaining vertices are unreachable from start
         // Hence the algorithm does not need to continue
-        if(distance[node] == std::numeric_limits<int>::max()) return;
+        if(distance[node] == std::numeric_limits<int>::max()) break;
 
         // Update adjacent nodes
         for(int i = 0; i < adj_list[node].size(); i++){
@@ -51,6 +57,7 @@ void dijkstraB(int vertices, int start, std::vector<std::pair<int,int>> adj_list
             if(processed[neighbor]) continue;
 
             // Updates shortest path
+            comparisons++;
             if(distance[node] + weight < distance[neighbor]){
                 distance[neighbor] = distance[node] + weight;
                 parent[neighbor] = node;
@@ -59,4 +66,6 @@ void dijkstraB(int vertices, int start, std::vector<std::pair<int,int>> adj_list
             }
         }
     }
+
+    return comparisons;
 }
