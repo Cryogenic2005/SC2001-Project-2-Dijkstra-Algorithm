@@ -25,7 +25,8 @@ int main(int argc, char* argv[]) {
     int num_edges = (argc > 2) ? std::stoi(argv[2]) : DEFAULT_NUM_EDGES;
     std::string algorithm = (argc > 3) ? argv[3] : DEFAULT_ALGORITHM;
     bool generate_graph_flag = (argc > 4) ? (argv[4][0] == '1') : DEFAULT_GENERATE_GRAPH;
-    int max_weight = (argc > 5) ? std::stoi(argv[5]) : DEFAULT_MAX_WEIGHT;
+    bool output_txt = (argc > 5) ? (argv[5][0] == '1') : false;
+    int max_weight = (argc > 6) ? std::stoi(argv[6]) : DEFAULT_MAX_WEIGHT;
 
     // Construct path to graph file
     std::filesystem::path file_path;
@@ -41,7 +42,7 @@ int main(int argc, char* argv[]) {
     // Generate graph if flag is set
     std::cout << "Generating graph... ";
     if (generate_graph_flag) {
-        generateGraph(num_vertices, num_edges, max_weight, file_path);
+        generateGraph(num_vertices, num_edges, max_weight, file_path, output_txt);
     }
     std::cout << "Done!" << std::endl;
 
