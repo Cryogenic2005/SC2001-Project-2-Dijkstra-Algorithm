@@ -49,7 +49,7 @@ Windows:
 Linux & MacOS:
 
 ```
-    ./bin/Dijkstra [NO_OF_VERTICES] [NO_OF_EDGES] [ALGORITHM] [GENERATE_NEW_GRAPH] [MAX_WEIGHT]
+    ./bin/Dijkstra [NO_OF_VERTICES] [NO_OF_EDGES] [ALGORITHM] [GENERATE_NEW_GRAPH] [OUTPUT_TEXT] [MAX_WEIGHT]
 ```
 
 Arguments:
@@ -57,6 +57,7 @@ Arguments:
 - *NO_OF_EDGES*: The number of edges in the graph, defaults to -1, which means a random number of edges will be generated.
 - *ALGORITHM*: The algorithm to be used, values can be **A**, **B** or **AB**. The corresponding implementation of Dijkstra's algorithm will be used for first 2 option, while both will be used for the last option. Defaults to **AB**.
 - *GENERATE_NEW_GRAPH*: Specify whether to generate a new random graph (1 for yes, 0 for no), defaults to 1.
+- *OUTPUT_TEXT*: Flag to output generated graph to a .txt file (1 for yes, 0 for no), defaults to 1.
 - *MAX_WEIGHT*: The maximum weight for the edges in the generated graph, defaults to 1000. Avoid making the number too high or there is risk of integer overflow.
 
 
